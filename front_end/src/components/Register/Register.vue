@@ -24,6 +24,8 @@
 
 <script>
 import axios from 'axios'
+import md5 from 'js-md5'
+
 export default {
   name: "Register",
   data() {
@@ -54,8 +56,7 @@ export default {
       axios.post("/api/user/register",
           {
             'username': this.user.userName,
-            'password': this.user.password,
-            'verPassword': this.user.verPassword,
+            'password': md5(this.user.password),
             'email': this.user.email,
             'phone': this.user.phone
           }).then(r => {
@@ -81,7 +82,7 @@ export default {
       const isPhone = /^(13[0-9]|14[5-9]|15[0-35-9]|16[6]|17[0-8]|18[0-9]|19[8-9]|147|166|192|198|17[0-1]|162)\d{8}$/.test(this.user.phone)
       if (isPhone) {
         this.isTips = false
-        this.checkDuplicatePhoneNumber()
+        // this.checkDuplicatePhoneNumber()
         return
       }
       this.isTips = true
@@ -137,7 +138,7 @@ export default {
 .register_form {
   width: 90%;
   margin: 20px auto;
-  background:#5A8ADECF;
+  background: #5A8ADECF;
   height: 500px;
   display: flex;
   flex-direction: column;
@@ -147,7 +148,7 @@ export default {
 }
 
 .register_form label {
-  font-size:18px;
+  font-size: 18px;
   color: white;
 }
 
