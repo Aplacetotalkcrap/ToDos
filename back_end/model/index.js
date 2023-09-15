@@ -10,6 +10,22 @@ const registerSQL = async (userInfo) => {
     return insert.serverStatus
 }
 
+const phoneOccupySQL =async (phone) => {
+    const [query,_] = await pool.execute(
+        'SELECT uid FROM sys_user WHERE phone=?',[phone]
+    )
+    return query.length !== 0
+}
+
+const LoginSQL = async (phone) => {
+const [query,_] = await pool.execute(
+    'SELECT * FROM sys_user WHERE phone=?',[phone]
+)
+    return query
+}
+
 module.exports = {
-    registerSQL
+    registerSQL,
+    phoneOccupySQL,
+    LoginSQL
 }
