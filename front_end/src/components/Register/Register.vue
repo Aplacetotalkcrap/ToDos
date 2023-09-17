@@ -2,19 +2,19 @@
   <div class="register" @click="isRegister">
     <form @submit.prevent="register" @click.stop class="register_form">
       <label for="account">
-        用户名：<input type="text" placeholder="用户名" id="account" v-model="user.userName">
-      </label>
-      <label for="password">
-        密码：<input type="password" placeholder="密码" id="password" v-model.trim="user.password">
-      </label>
-      <label for="verPassword">
-        验证密码：<input type="password" placeholder="在输入一次密码" id="verPassword" v-model.trim="user.verPassword">
+        姓&emsp;&emsp;名：<input type="text" placeholder="用户名" id="account" v-model="user.userName">
       </label>
       <label for="email">
-        邮箱：<input type="text" placeholder="邮箱" id="email" v-model.lazy="user.email">
+        邮&emsp;&emsp;箱：<input type="text" placeholder="邮箱" id="email" v-model.lazy="user.email">
       </label>
       <label for="phone">
-        手机号：<input type="text" placeholder="手机号" id="phone" v-model.lazy.trim.number="user.phone">
+        手&emsp;&emsp;机：<input type="text" placeholder="手机号" id="phone" v-model.lazy.trim.number="user.phone">
+      </label>
+      <label for="password">
+        密&emsp;&emsp;码：<input type="password" placeholder="密码" id="password" v-model.trim="user.password">
+      </label>
+      <label for="verPassword">
+        验证密码：<input type="password" placeholder="再输入一次密码" id="verPassword" v-model.trim="user.verPassword">
       </label>
       <p class="tips" v-if="isTips">{{ tipsVal }}</p>
       <button type="submit" value="注册">注册</button>
@@ -129,36 +129,69 @@ export default {
 .register {
   width: 100vw;
   height: 100vh;
-  background: #384955;
+  background: lightblue;
   position: fixed;
   top: 0;
   left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .register_form {
   width: 90%;
+  max-width: 400px;
   margin: 20px auto;
-  background: #5A8ADECF;
-  height: 500px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 30px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-content: center;
-  border-radius: 30px
+  align-items: center;
 }
 
 .register_form label {
   font-size: 18px;
-  color: white;
+  color:#333333;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  text-indent: 10px;
+  text-align: left;
 }
 
 .register_form input {
+  width: 100%;
   height: 30px;
-  border-radius: 5px
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  margin-left: 10px;
+}
+
+.register_form button[type="submit"] {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #333333;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .tips {
-  color: red;
+  color: #999999;
   font-size: 12px;
+  margin-top: 5px;
+  text-align: center;
 }
 </style>
+
+
+
+
+
+
