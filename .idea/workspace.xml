@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f66a8a74-4b70-415f-811f-493d3b78e671" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/to-dos.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/config/config.default.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/controller/userController.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/logs/app.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/model/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/router/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/router/userRouter.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/server.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/utils/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/back-end/utils/response.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/Frame 4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/bg6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/changeBg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/complete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/del.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/dial.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/dogHead.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/email.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/favorite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/file-add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/file.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/filter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/hour.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/minute.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/more.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/notification.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/phone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/prompt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/search.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/setting.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/supervise.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/survey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/timeLogo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/删除.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/矩形 1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/矩形 2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/public/static/编辑.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/calendar.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/cha.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/data-view.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/history.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/home.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/assets/img/user.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/components/profile/ProfileItem.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/components/register/Register.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/components/tabBar/TabBar.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/AttentionView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/HistoryView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/HomeView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/LoginView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/ProfileView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/StatisticsView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/TestView.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/src/views/ToDoList.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front-end/store/index.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Vdb7Vq0qRAosf2V7Bpy1MXCvTb" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="false" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/webstrom/ToDos/ToDos/front_end",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f66a8a74-4b70-415f-811f-493d3b78e671" name="Changes" comment="" />
+      <created>1695168736743</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1695168736743</updated>
+      <workItem from="1695168738351" duration="1051000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
