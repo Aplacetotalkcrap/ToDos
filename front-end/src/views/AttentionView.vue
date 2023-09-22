@@ -57,7 +57,7 @@ export default {
   background-color: black;
   color: #fff;
   text-align: center;
-  font-size: 45vw;
+  font-size: 40vw;
   /*页面旋转90度*/
   writing-mode: vertical-rl;
   text-orientation: mixed;

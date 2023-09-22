@@ -41,7 +41,7 @@ export default {
       const user = {...this.user}
       user.password = md5(user.password)
       await this.$store.dispatch('login', user)
-      if (this.$store.state.userInfo.uid) {
+      if (this.$store.state.userInfo.token) {
         // console.log(111)
         this.$router.push("/home")
       }

@@ -3,7 +3,7 @@
     <h2>个人中心</h2>
     <div class="headSculpture"></div>
     <br>
-    <p>11111</p>
+    <p>Geng.</p>
     <ul>
       <ProfileItem
           v-for="item in routerList"
@@ -54,7 +54,8 @@ export default {
 h2{
   font-size: 25px;
   background: #fff;
-  padding-bottom: 25px;
+  padding-bottom: 10px;
+  margin: 0;
 }
 h2,p{
   text-align: center;
@@ -79,7 +80,7 @@ p{
   margin: 0 auto;
 
   border-radius: 50%;
-  /*background: url("../../public/static/dogHead.png") no-repeat;*/
+  background: url("../../public/static/header.jpg") no-repeat;
   background-size: 100% 100%;
 }
 

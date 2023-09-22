@@ -93,8 +93,8 @@ export default {
   height: 45px;
   background-color: #fff;
   position: absolute;
-  top: 145px;
-  left: 189px;
+  top: 35%;
+  left: 49%;
   border-radius: 2px;
 }
 
@@ -103,8 +103,8 @@ export default {
   height: 90px;
   background-color: white;
   position: absolute;
-  top: 100px;
-  left: 190px;
+  top: 20%;
+  left: 50%;
   border-radius: 1.5px;
 }
 
