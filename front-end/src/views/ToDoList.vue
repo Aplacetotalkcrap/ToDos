@@ -2,7 +2,7 @@
   <div class="container">
     <h2>待办事项</h2>
     <button v-if="isSubComplete" @click="subCompleted" class="button">确定完成</button>
-    <ol>
+    <ol>，
       <!--     遍历渲染待办事项-->
       <li
           v-for="(todo,index) in todolist"
@@ -112,6 +112,7 @@ export default {
     showDelete() {
       this.isShowDelete = !this.isShowDelete
     },
+    // 添加待办事项成功，更新待办事项列表
     addSuccess() {
       this.showTodoList()
       this.getTodos()
@@ -122,9 +123,11 @@ export default {
     subCompleted() {
       const completedArr = this.todolist
           .filter(item => item.complete === 1)
+          //声明一个数组用来接收数据，它的元素是从todo列表里过滤complete为1（代表已完成）的todo的id
           .map(item => item.id)
       axios.post('/api/todo/modifyToDo', {
         completedArr,
+        // 用户令牌，检查 Vuex 存储和 Cookie
         token: this.$store.state.userInfo.token || this.getCookie('token')
       })
           .then(
@@ -141,6 +144,9 @@ export default {
 </script>
 
 <style scoped>
+body {
+  height: 100%;
+}
 .button {
   width: 50px;
   height: 50px;
@@ -166,7 +172,7 @@ export default {
 }
 
 ol {
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
 h2 {
@@ -175,9 +181,9 @@ h2 {
 }
 
 .container {
-  width: 100%;
-  height: 100%;
-  background: url("../../public/static/bg1.png") no-repeat;
+  width: 100vw;
+  height: 1062px;
+  background: url("../../public/static/bg1.png");
   background-size: 100% 100%;
 }
 
@@ -198,6 +204,7 @@ ol > li > p {
 
 li {
   list-style: none;
+  z-index: 3;
 }
 
 /* 编辑按钮样式 */

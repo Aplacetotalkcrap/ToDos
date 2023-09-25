@@ -37,12 +37,13 @@ export default {
 <style scoped>
 ul{
   list-style: none;
+  /*margin-top: 20px;*/
   margin: 0;
   padding: 9px 0 0;
   position: fixed;
   bottom: 0;
   left: 0;
-  z-index: 2;
+  /*z-index: 2;*/
   width: 100vw;
   height: 68px;
   background-color: white;
