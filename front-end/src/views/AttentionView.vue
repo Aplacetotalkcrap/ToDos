@@ -9,30 +9,22 @@
 </template>
 
 <script>
+import axios from "axios";
+import {getCookie} from "@/utils";
+
 export default {
   name: "AttentionView",
   data() {
     return {
       time: new Date(),
-      timepiece: null
+      timepiece: null,
+      keepTimer: null//keep timer计时
     }
   },
   computed: {
     realTime() {
       return this.time.toLocaleTimeString()
     },
-    /*    hours() {
-          return this.time.getHours()
-        },
-        minutes() {
-          return this.time.getMinutes()<10?`0${this.time.getMinutes()}`:this.time.getMinutes()
-        },
-            seconds(){
-              if (this.time.getSeconds() <10) {
-                return '0' + this.time.getSeconds()
-              }
-              return this.time.getSeconds()
-            },*/
   },
   methods: {
     toHome() {
@@ -40,12 +32,17 @@ export default {
     },
   },
   mounted() {
-    this.timepiece = setInterval(() => {
+    this.clockTimer = setInterval(() => {
       this.time = new Date()
     }, 1000)
+    this.keepTimer = setInterval(() => {
+      axios.get(`/api/intent/setIntent?token=${this.$store.state.userInfo.token || getCookie('token')}`)
+    }, 1000 * 60)
   },
+
   unmounted() {
-    clearInterval(this.timepiece)
+    clearInterval(this.clockTimer)
+    clearInterval(this.keepTimer)
   },
 }
 </script>

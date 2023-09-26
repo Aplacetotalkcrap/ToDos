@@ -29,15 +29,28 @@ const store = createStore({
                         document.cookie = `token=${r.data.data.token};Max-Age=${60 * 60}`
                         console.log(r.data.data)
                         return payload.commit('login', r.data.data)
-
                     }
                     alert('登录失败，请重试')
                 })
                 .catch()
         },
         async getTodos(payload) {
-           await axios.get(`/api/todo/todos?token=${payload.state.userInfo.token}`)
+            //从cookie中获取指定名称的值
+           function getCookie(name){
+                const cookies = document.cookie.split('; ')
+                for(const cookie of cookies){
+                    const[cookieName, cookieValue] = cookie.split('=')
+                    if(cookieName === name){
+                        return decodeURIComponent(cookieValue)
+                    }
+                }
+                return null //如果找不到就返回null
+            }
+
+            console.log(getCookie('token'))
+           await axios.get(`/api/todo/todos?token=${payload.state.userInfo.token || getCookie('token')}`)
                 .then(r => {
+                    console.log(r)
                     if (r.data.code === 200) {
                         console.log(r.data.data)
                         payload.commit('getTodos', r.data.data)

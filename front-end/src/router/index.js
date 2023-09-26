@@ -10,6 +10,7 @@ const StatisticView = () => import("../views/StatisticsView.vue")
 const AttentionView = () => import("../views/AttentionView.vue")
 const TestView = () => import("../views/TestView.vue")
 
+import {getCookie} from "@/utils";
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -27,7 +28,16 @@ const router = createRouter({
         {path:'/home',name:'Home',component: HomeView},
         {path:'/test',name: 'Test', component: TestView},
     ]
+})
 
+router.beforeEach(async (to, from) => {
+    const isAuthenticated = getCookie('token')
+    if(!isAuthenticated && to.name !== 'Login'){
+        return {name: 'Login'}
+    }
+    if(isAuthenticated && to.name === 'Login'){
+        return {name: 'Home'}
+    }
 })
 
 export default router

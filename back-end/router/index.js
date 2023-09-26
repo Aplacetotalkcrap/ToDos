@@ -7,10 +7,13 @@ const userRouter = require('./userRouter')
 // 导入待办事项路由模块
 const todoRouter = require('./todoRouter')
 
+const intentRouter = require('./intentRouter')
+
 // 使用用户路由模块处理以 "/user" 开头的路由
 router.use("/user", userRouter)
 // 使用待办事项路由模块处理以 "/todo" 开头的路由
 router.use("/todo", todoRouter)
 
+router.use("/intent",intentRouter)
 // 导出路由实例
 module.exports = router

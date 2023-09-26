@@ -96,6 +96,22 @@ const updateTodo = async (userId, todoId) => {
     return update.serverStatus
 }
 
+const deleteTodo = async (userId, todoId) => {
+    const [del, _] = await pool.execute(
+        'UPDATE todo SET is_delete=? WHERE user_id=? AND id=?',
+        [1, userId, todoId]
+    )
+    return del.serverStatus
+}
+
+const addAttentionTime = async (userId) => {
+    const [attention, _] = await pool.execute(
+        'UPDATE sys_user SET attention_time=attention_time+? WHERE uid=?',
+        [1, userId]
+    )
+    return attention.serverStatus
+}
+
 module.exports = {
     registerSQL,
     phoneOccupySQL,
@@ -106,5 +122,7 @@ module.exports = {
     insertToken,
     queryIdByToken,
     addEventTodo,
-    updateTodo
+    updateTodo,
+    deleteTodo,
+    addAttentionTime
 }

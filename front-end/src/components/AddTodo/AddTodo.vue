@@ -1,8 +1,8 @@
 <template>
   <div class="addTodo">
-    <textarea v-model="addTodContent"></textarea>
-    <button @click="showTodoList">取消</button>
-    <button @click="submitTodo">确定</button>
+    <textarea v-model="addTodContent"></textarea><br>
+    <button class="button" @click="showTodoList">取消</button>
+    <button class="button" @click="submitTodo">确定</button>
   </div>
 </template>
 
@@ -58,12 +58,19 @@ export default {
   position: fixed;
   top: 0;
   left: 0;
-  /*z-index: 3;*/
   background-color: #666666cc;
 }
 
 textarea {
-  width: 100vw;
-  height: 50vh;
+  width:70vw;
+  height: 20vh;
+  position: relative;
+  top: 250px;
+  left: 45px;
+}
+button{
+  position: relative;
+  top: 250px;
+  left: 45px;
 }
 </style>

@@ -1,7 +1,7 @@
 // 导入 Express 的 Router 模块
 const {Router, query} = require('express')
 // 导入模型中的 registerSQL 函数
-const {queryTodoList, queryTokenById, queryIdByToken, addEventTodo, updateTodo} = require("../model")
+const {queryTodoList, queryTokenById, queryIdByToken, addEventTodo, updateTodo,deleteTodo} = require("../model")
 const {resultType,ERROR,SUCCESS} = require("../config/config.default");
 // 创建一个新的路由实例
 const router = Router()
@@ -12,7 +12,8 @@ router.get('/todos', async (req, res, next) => {
     // console.log(userList[0].user_id)
     try {
         const todolist = await queryTodoList(userList[0].user_id)
-        res.send(resultType(SUCCESS,"添加成功",todolist))
+        const newTodoList = todolist.filter(todo =>todo.is_delete === 0)
+        res.send(resultType(SUCCESS,"添加成功",newTodoList))
     } catch (err) {}
 })
 
@@ -47,5 +48,12 @@ router.post('/modifyToDo', async (req, res, next) => {
     res.send(resultType(SUCCESS, "添加成功"))
 })
 
+router.delete('/deleteTodo',async (req,res,next) => {
+    const userList = await queryIdByToken(req.query.token)
+    //用户id
+    const delStatus =await deleteTodo(userList[0].user_id,req.query.id)
+    if(delStatus === 2)return res.send(resultType(ERROR, "删除失败"))
+    res.send(resultType(SUCCESS, "删除成功"))
+})
 // 导出路由实例
 module.exports = router

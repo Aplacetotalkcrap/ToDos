@@ -2,24 +2,17 @@
   <div class="container">
     <!-- 待办事项标题 -->
     <h2>已完成事项</h2>
-    <ol ref="ol">
+    <ol>
       <!-- 遍历渲染待办事项 -->
-      <li
-          v-for="(todo,index) in todoList"
-          :key="todo.id"
-          @click="isCompleted(index)"
-      >
+      <li v-for="(item,index) in historyEvent" :key="item.id">
         <span :style="{background:colors[index]}">{{ index + 1 }}</span>
-        <p v-if="todo.complete === 0">{{ todo.event }}</p>
-        <p v-else class="lineThrough">{{ todo.event }}</p>
+        {{item.event}}
       </li>
     </ol>
   </div>
 </template>
 
 <script>
-// 导入 Axios 用于发起 HTTP 请求
-import axios from "axios";
 export default {
   name: "HistoryView",
   data() {
@@ -55,7 +48,12 @@ export default {
       // 编辑状态标志
       isEdit: false,
       // 待办事项列表数据
-      todoList: [],
+      todos: [],
+    }
+  },
+  computed:{
+    historyEvent(){
+     return this.$store.state.todos.filter(i => i.complete ===1)
     }
   },
   mounted() {
@@ -64,35 +62,28 @@ export default {
   },
   methods: {
     // 获取待办事项数据
-    getTodos() {
-      axios.get(`/api/todo/historyTodo?userId=${this.$store.state.userInfo.uid}`)
-          .then(
-              r => {
-                this.todoList = [...r.data]
-              }
-          ).catch()
-    },
-
-    isCompleted(index) {
-      this.todoList[index].complete = this.todoList[index].complete === 0 ? 1 : 0
+    async getTodos() { //根据token查找对应的todos，不应该用userid 不安全
+      await this.$store.dispatch('getTodos')
     },
   }
 }
 </script>
 
 <style scoped>
+.container {
+  width: 100vw;
+  height: 1062px;
+  background: url("../../public/static/bg1.png");
+  background-size: 100% 100%;
+}
 h2{
   text-align: center;
   margin: 0;
 }
 
-.container{
-  width: 100vw;
-  height: 100vh;
-  background: url("../../public/static/bg1.png")no-repeat;
-  background-size: 100% 100%;
+li {
+  list-style: none;
 }
-
 ol > li > span {
   display: inline-block;
   width: 30px;
@@ -101,14 +92,5 @@ ol > li > span {
   text-align: center;
   line-height: 30px;
   margin-right: 10px;
-}
-
-ol > li > p {
-  display: inline-block;
-
-}
-
-li {
-  list-style: none;
 }
 </style>

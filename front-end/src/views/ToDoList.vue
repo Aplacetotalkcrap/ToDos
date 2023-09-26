@@ -2,18 +2,14 @@
   <div class="container">
     <h2>待办事项</h2>
     <button v-if="isSubComplete" @click="subCompleted" class="button">确定完成</button>
-    <ol>，
+    <ol>
       <!--     遍历渲染待办事项-->
-      <li
-          v-for="(todo,index) in todolist"
-          :key="todo.id"
-          @click="isCompleted(index)"
-      >
+      <li v-for="(todo,index) in todolist" :key="todo.id" @click="isCompleted(index)">
         <span :style="{background:colors[index]}">{{ index + 1 }}</span>
         <p v-if="todo.complete === 0">{{ todo.event }}</p>
         <p v-else class="lineThrough">{{ todo.event }}</p>
         <div class="close-button-container">
-          <img src="../../public/static/close.png" alt="" v-if="isShowDelete">
+          <img src="../../public/static/close.png" alt="" v-if="isShowDelete" @click.stop="deleteTodo(todo.id)" class="deleteButton">
         </div>
       </li>
     </ol>
@@ -31,6 +27,8 @@
 import AddTodo from "@/components/AddTodo/AddTodo.vue";
 // 导入 Axios 用于发起 HTTP 请求
 import axios from "axios";
+
+import {getCookie} from "@/utils";
 
 export default {
   components: {
@@ -76,12 +74,7 @@ export default {
   computed: {
     isSubComplete() {
       return Boolean(this.todolist.find(item => item.complete === 1))
-    },
-    /*   //响应式获取vuex里面的数据
-       incomplete(){
-         return this.$store.state.todos.filter(todo =>todo.complete === 0)
-       }*/
-
+    }
   },
   mounted() {
     // 获取待办事项数据
@@ -96,16 +89,7 @@ export default {
       this.isEdit = false
     },
     // 获取待办事项数据
-    async getTodos() {
-      /*      axios.get(`/api/todo/queryToDo?userId=${this.$store.state.userInfo.uid}`)
-                .then(
-                    r => {
-                      this.todoList = [...r.data]
-                    }
-                ).catch()*/
-      /*     if(this.$store.state.todos.length === 0){
-             this.$store.dispatch('getTodos')
-           }*/
+    async getTodos() { //根据token查找对应的todos，不应该用userid 不安全
       await this.$store.dispatch('getTodos')
       this.todolist = this.$store.state.todos.filter(todo => todo.complete === 0)
     },
@@ -128,7 +112,7 @@ export default {
       axios.post('/api/todo/modifyToDo', {
         completedArr,
         // 用户令牌，检查 Vuex 存储和 Cookie
-        token: this.$store.state.userInfo.token || this.getCookie('token')
+        token: this.$store.state.userInfo.token || getCookie('token')
       })
           .then(
               r => {
@@ -138,6 +122,21 @@ export default {
                 }
               }
           ).catch()
+    },
+    deleteTodo(id) {
+      if (confirm("确定要删除这一条吗？")) {
+        axios.delete(
+            `/api/todo/deleteTodo?token=${this.$store.state.userInfo.token || getCookie('token')}&id=${id}`
+        )
+            .then(
+                r => {
+                  console.log(r.data)
+                  if (r.data.code === 200) {
+                    this.getTodos()
+                  }
+                }
+            ).catch()
+      }
     }
   }
 }
@@ -147,6 +146,7 @@ export default {
 body {
   height: 100%;
 }
+
 .button {
   width: 50px;
   height: 50px;
@@ -160,13 +160,17 @@ body {
 }
 
 .close-button-container {
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
   display: inline-block;
   line-height: 30px;
   text-align: right;
   float: right;
+
 }
 
-.close-button-container img {
+.deleteButton{
   width: 30px;
   height: 30px;
 }
@@ -182,9 +186,10 @@ h2 {
 
 .container {
   width: 100vw;
-  height: 1062px;
+  height: 90vh;
   background: url("../../public/static/bg1.png");
   background-size: 100% 100%;
+  overflow-y: scroll;
 }
 
 ol > li > span {
@@ -199,12 +204,10 @@ ol > li > span {
 
 ol > li > p {
   display: inline-block;
-
 }
 
 li {
   list-style: none;
-  z-index: 3;
 }
 
 /* 编辑按钮样式 */
@@ -228,4 +231,6 @@ li {
   text-decoration: line-through;
   color: #aaa;
 }
+
+
 </style>
