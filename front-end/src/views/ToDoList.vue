@@ -126,7 +126,7 @@ export default {
     deleteTodo(id) {
       if (confirm("确定要删除这一条吗？")) {
         axios.delete(
-            `/api/todo/deleteTodo?token=${this.$store.state.userInfo.token || getCookie('token')}&id=${id}`
+            `/api/todo/setIntent?token=${this.$store.state.userInfo.token || getCookie('token')}&id=${id}`
         )
             .then(
                 r => {

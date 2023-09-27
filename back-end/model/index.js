@@ -112,6 +112,14 @@ const addAttentionTime = async (userId) => {
     return attention.serverStatus
 }
 
+const getAttentionTime = async userId => {
+    const [query, _] = await pool.execute(
+        'SELECT attention_time FROM sys_user WHERE uid=?',
+        [userId]
+    )
+    return query
+};
+
 module.exports = {
     registerSQL,
     phoneOccupySQL,
@@ -124,5 +132,6 @@ module.exports = {
     addEventTodo,
     updateTodo,
     deleteTodo,
-    addAttentionTime
+    addAttentionTime,
+    getAttentionTime
 }
